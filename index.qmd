@@ -1,0 +1,42 @@
+---
+title: "final-dashboard-project"
+---
+
+```{r, echo = FALSE}
+library(tidyverse)
+library(plotly)
+library(janitor)
+
+accessories <- read_csv("data/accessories.csv")
+
+accessories <- accessories %>%
+  clean_names()
+
+```
+
+```{r, echo = FALSE}
+#| title: scatter plot
+p1 <- ggplot(data = accessories, aes(x = name, y = buy)) +
+  geom_point()
+
+ggplotly(p1)
+```
+
+```{r, echo = FALSE}
+#| title: bar chart
+
+p2 <- ggplot(data = accessories, aes(x = name, y = buy)) +
+  geom_bar(stat="identity") +
+  theme(axis,title.x = element_text(angle = 45, vjust = .5, hjust = 1))
+
+ggplotly(p2)
+```
+
+```{r, echo = FALSE}
+#| title: table
+
+accessories <- accessories %>%
+  select(-buy)
+
+knitr::kable(accessories)
+```
