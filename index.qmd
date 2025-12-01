@@ -13,12 +13,10 @@ accessories <- read_csv("data/accessories.csv")
 accessories <- accessories %>%
   clean_names()
 
-filtered_data <- accessories %>%
-  group_by(name) %>%
-  filter(n() > 1) %>%
-  ungroup()
+accessories <- accessories %>% 
+  distinct(name, .keep_all = TRUE)
 
-print(filtered_data)
+print(accessories)
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -27,12 +25,15 @@ p1 <- ggplot(data = accessories, aes(x = name, y = buy)) +
   geom_point()
 
 ggplotly(p1)
+
+# convert to numeric
+# as.numeric(accessories$buy)
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: bar chart
 
-p2 <- ggplot(data = accessories, aes(x = name, y = buy)) +
+p2 <- ggplot(data = accessories, aes(x = name, y = sell)) +
   geom_bar(stat="identity") +
   theme(axis,title.x = element_text(angle = 45, vjust = .5, hjust = 1))
 
