@@ -2,23 +2,26 @@
 title: "final dashboard project"
 ---
 
-```{r}
-
-```
-
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(plotly)
 library(janitor)
+library(dplyr)
 
 accessories <- read_csv("data/accessories.csv")
 
 accessories <- accessories %>%
   clean_names()
 
+filtered_data <- accessories %>%
+  group_by(name) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+print(filtered_data)
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: scatter plot
 p1 <- ggplot(data = accessories, aes(x = name, y = buy)) +
   geom_point()
@@ -26,7 +29,7 @@ p1 <- ggplot(data = accessories, aes(x = name, y = buy)) +
 ggplotly(p1)
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: bar chart
 
 p2 <- ggplot(data = accessories, aes(x = name, y = buy)) +
@@ -36,7 +39,7 @@ p2 <- ggplot(data = accessories, aes(x = name, y = buy)) +
 ggplotly(p2)
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: table
 
 accessories <- accessories %>%

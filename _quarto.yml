@@ -4,7 +4,7 @@ project:
   
 
 website:
-  title: "final-dashboard-project"
+  title: "final dashboard project"
   navbar:
     left:
       - href: index.qmd
