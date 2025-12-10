@@ -3,7 +3,7 @@ title: "Final Project"
 author: "Amara Brown"
 format:
   dashboard:
-    orientation: rows
+    orientation: columns
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -39,7 +39,7 @@ ggplotly(p1)
 
 p2 <- ggplot(data = accessories, aes(x = sell, y = name)) +
   geom_bar(stat="identity") +
-  theme(axis.text.x = element_text(angle = 50, hjust = 1, size = 3))
+  theme(axis.text.y = element_text(angle = 0, size = 4.5))
 
 ggplotly(p2)
 ```
