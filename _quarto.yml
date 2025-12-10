@@ -4,7 +4,7 @@ project:
   
 
 website:
-  title: "final dashboard project"
+  title: "final project"
   navbar:
     left:
       - href: index.qmd
@@ -13,9 +13,6 @@ website:
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
     css: styles.css
     toc: true
 

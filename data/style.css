@@ -1,0 +1,28 @@
+/* css styles */
+a {
+  color: ;
+}
+
+a:visited {
+  color: #85B09A;
+}
+
+a:hover {
+  color: #00416A;
+}
+
+body, p {
+  background-color: ##C5D1EB;
+}
+
+.navbar {
+  background-color: ##92AFD7;
+}
+
+.navbar-title {
+  color: ##1F2F16;
+}
+
+.navbar-nav .nav-link {
+      color: ##395B50
+}

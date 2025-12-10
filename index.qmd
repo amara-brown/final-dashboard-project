@@ -1,5 +1,12 @@
 ---
-title: "final dashboard project"
+title: "final project"
+toc: FALSE
+about:
+  template: solana
+  links: 
+    - text: website
+      icon: heart-fill
+      href: https://amara-brown.github.io/
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -16,18 +23,18 @@ accessories <- accessories %>%
 accessories <- accessories %>% 
   distinct(name, .keep_all = TRUE)
 
-print(accessories)
+#cite data, add sentences
 ```
+
+Project
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: scatter plot
-p1 <- ggplot(data = accessories, aes(x = name, y = buy)) +
-  geom_point()
+p1 <- ggplot(data = accessories, aes(x = name, y = sell)) +
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1, size = 2))
 
 ggplotly(p1)
-
-# convert to numeric
-# as.numeric(accessories$buy)
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -35,7 +42,7 @@ ggplotly(p1)
 
 p2 <- ggplot(data = accessories, aes(x = name, y = sell)) +
   geom_bar(stat="identity") +
-  theme(axis,title.x = element_text(angle = 45, vjust = .5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 50, hjust = 1, size = 3))
 
 ggplotly(p2)
 ```
@@ -44,7 +51,9 @@ ggplotly(p2)
 #| title: table
 
 accessories <- accessories %>%
-  select(-buy)
+  select(-sell)
 
 knitr::kable(accessories)
+
+
 ```
