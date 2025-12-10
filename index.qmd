@@ -1,12 +1,9 @@
 ---
-title: "final project"
-toc: FALSE
-about:
-  template: solana
-  links: 
-    - text: website
-      icon: heart-fill
-      href: https://amara-brown.github.io/
+title: "Final Project"
+author: "Amara Brown"
+format:
+  dashboard:
+    orientation: rows
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -40,20 +37,9 @@ ggplotly(p1)
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: bar chart
 
-p2 <- ggplot(data = accessories, aes(x = name, y = sell)) +
+p2 <- ggplot(data = accessories, aes(x = sell, y = name)) +
   geom_bar(stat="identity") +
   theme(axis.text.x = element_text(angle = 50, hjust = 1, size = 3))
 
 ggplotly(p2)
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-#| title: table
-
-accessories <- accessories %>%
-  select(-sell)
-
-knitr::kable(accessories)
-
-
 ```

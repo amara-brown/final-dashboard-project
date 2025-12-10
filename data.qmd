@@ -1,0 +1,30 @@
+---
+title: "data"
+format: html
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(plotly)
+library(janitor)
+library(dplyr)
+
+accessories <- read_csv("data/accessories.csv")
+
+accessories <- accessories %>%
+  clean_names()
+
+accessories <- accessories %>% 
+  distinct(name, .keep_all = TRUE)
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+#| title: table
+
+accessories <- accessories %>%
+  select(-sell)
+
+knitr::kable(accessories)
+
+```

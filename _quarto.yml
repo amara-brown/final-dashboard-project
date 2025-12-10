@@ -2,18 +2,21 @@ project:
   type: website
   output-dir: docs
   
-
 website:
-  title: "final project"
+  title: "amara-brown.github.io"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-
+    right:
+      - text: website
+        icon: suit-heart-fill
+        href: https://amara-brown.github.io/
+        
+    left: 
+      - href: data.qmd
+        text: Data
+        
 format:
   html:
-    css: styles.css
+    css: style.css
     toc: true
 
 editor: visual
