@@ -1,21 +1,27 @@
-/* css styles */
-
-a:visited {
-  color: #85B09A !important;
-}
-
-a:hover {
-  color: #00416A !important;
-}
-
+/* Body background */
 body {
   background-color: #fbfeb2 !important;
 }
 
-.navbar {
+/* Navbar background */
+.navbar.navbar {
   background-color: #bee893 !important;
 }
 
+/* Navbar links */
 .navbar-nav .nav-link {
-      color: #395B50 !important
+  color: #74e0aa !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #c4d9a9 !important;
+}
+
+/* Visited links */
+a:visited {
+  color: #dbbf9e !important;
+}
+
+a:hover {
+  color: #c4d9a9 !important;
 }

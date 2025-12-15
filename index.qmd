@@ -3,7 +3,7 @@ title: "Final Project"
 format:
   dashboard:
     orientation: columns
-    theme: cosmo
+    theme: morph
     css: style.css
 ---
 
@@ -42,21 +42,16 @@ p_dot <- accessories %>%
   arrange(sell) %>%
   mutate(name = fct_reorder(name, sell)) %>%
   ggplot(aes(x = sell, y = name)) +
-  geom_point(alpha = 0.6) +
+  geom_point(alpha = 0.6, color = point_color) +
   labs(
     title = "Accessory Prices",
     x = "Price",
     y = "Accessory"
   ) +
-  theme_minimal() +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  ) 
+  theme_custom
 
-
-ggplotly(p_dot)
-
+ggplotly(p_dot) %>%
+  layout(plot_bgcolor = "#fbfeb2", paper_bgcolor = "#fbfeb2")
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}

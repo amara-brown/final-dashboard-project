@@ -1,25 +1,27 @@
-/* css styles */
+/* Body background */
+body {
+  background-color: #fbfeb2 !important;
+}
 
+/* Navbar background */
+.navbar.navbar-light {
+  background-color: #bee893 !important;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  color: #74e0aa !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #c4d9a9 !important;
+}
+
+/* Visited links */
 a:visited {
-  color: #85B09A;
+  color: #dbbf9e !important;
 }
 
 a:hover {
-  color: #00416A;
-}
-
-body {
-  background-color: #C5D1EB;
-}
-
-.navbar {
-  background-color: #92AFD7;
-}
-
-.navbar-title {
-  color: #1F2F16;
-}
-
-.navbar-nav .nav-link {
-      color: #395B50
+  color: #c4d9a9 !important;
 }
