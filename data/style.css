@@ -1,25 +1,21 @@
 /* css styles */
 
 a:visited {
-  color: #85B09A;
+  color: #85B09A !important;
 }
 
 a:hover {
-  color: #00416A;
+  color: #00416A !important;
 }
 
 body {
-  background-color: #C5D1EB;
+  background-color: #fbfeb2 !important;
 }
 
 .navbar {
-  background-color: #92AFD7;
-}
-
-.navbar-title {
-  color: #1F2F16;
+  background-color: #bee893 !important;
 }
 
 .navbar-nav .nav-link {
-      color: #395B50
+      color: #395B50 !important
 }

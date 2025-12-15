@@ -1,9 +1,10 @@
 ---
 title: "Final Project"
-author: "Amara Brown"
 format:
   dashboard:
-    page-layout: full
+    orientation: columns
+    theme: cosmo
+    css: style.css
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -22,8 +23,6 @@ accessories <- accessories %>%
 
 #cite data, add sentences
 ```
-
-Project
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 p1 <- ggplot(accessories, aes(x = sell)) +
@@ -53,13 +52,14 @@ p_dot <- accessories %>%
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
-  )
+  ) 
+
 
 ggplotly(p_dot)
 
 ```
 
-```{r}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 top_n <- accessories %>%
   slice_max(sell, n = 20)
 

@@ -1,6 +1,8 @@
 ---
 title: "data"
-format: html
+format:
+  dashboard:
+    css: style.css
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -28,3 +30,9 @@ accessories <- accessories %>%
 knitr::kable(accessories)
 
 ```
+
+## Dataset credit
+
+Animal Crossing New Horizons Catalog by Jessica Li - kaggle.com
+
+# 

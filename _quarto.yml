@@ -2,6 +2,11 @@ project:
   type: website
   output-dir: docs
   
+format:
+  html:
+    css: style.css
+    toc: true
+  
 website:
   navbar:
     right:
@@ -10,15 +15,10 @@ website:
         href: https://amara-brown.github.io/
         
     left: 
-      - href: data.qmd
-        text: Data
       - href: index.qmd
         text: Home
-        
-format:
-  html:
-    css: style.css
-    toc: true
+      - href: data.qmd
+        text: Data
 
 editor: visual
 
