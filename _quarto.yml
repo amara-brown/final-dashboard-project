@@ -3,7 +3,6 @@ project:
   output-dir: docs
   
 website:
-  title: "amara-brown.github.io"
   navbar:
     right:
       - text: website
@@ -13,6 +12,8 @@ website:
     left: 
       - href: data.qmd
         text: Data
+      - href: index.qmd
+        text: Home
         
 format:
   html:

@@ -43,3 +43,7 @@ p2 <- ggplot(data = accessories, aes(x = sell, y = name)) +
 
 ggplotly(p2)
 ```
+
+```{r}
+
+```
