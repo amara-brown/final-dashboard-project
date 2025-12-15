@@ -1,11 +1,13 @@
 ---
-title: "Final Project"
+title: "What Accessory is Worth Selling? (ACNH)"
 format:
   dashboard:
     orientation: columns
-    theme: morph
+    theme: cosmo
     css: style.css
 ---
+
+Dataset made by Jessica Li: <https://www.kaggle.com/datasets/jessicali9530/animal-crossing-new-horizons-nookplaza-dataset>
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -21,20 +23,42 @@ accessories <- accessories %>%
 accessories <- accessories %>% 
   distinct(name, .keep_all = TRUE)
 
+fill_color <- "#9AB973"    
+border_color <- "#f6f4ea"
+point_color <- "#9AB973"   
+bg_color <- "#f6f4ea"       
+title_color <- "#523A34"
+axis_color <- "#855C40"
+
 #cite data, add sentences
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 p1 <- ggplot(accessories, aes(x = sell)) +
-  geom_histogram(bins = 30) +
+  geom_histogram(
+    bins = 30,
+    fill = fill_color,
+    color = border_color,
+    alpha = 0.8     
+  ) +
   labs(
     title = "Distribution of Accessory Prices",
     x = "Price",
     y = "Count"
   ) +
-  theme_minimal()
+  theme_minimal()+
+  theme(
+    plot.title = element_text(color = "#523A34", size = 16, face = "bold"),
+    axis.title = element_text(color = "#855C40", size = 12),
+    axis.text = element_text(color = "#855C40", size = 10)
+  )
 
-ggplotly(p1)
+ggplotly(p1) %>%
+  layout(
+    plot_bgcolor = "#f6f4ea",  
+    paper_bgcolor = "#f6f4ea",
+    font = list(color = "#855C40") 
+  )
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -42,32 +66,54 @@ p_dot <- accessories %>%
   arrange(sell) %>%
   mutate(name = fct_reorder(name, sell)) %>%
   ggplot(aes(x = sell, y = name)) +
-  geom_point(alpha = 0.6, color = point_color) +
+  geom_point(alpha = 0.6, color = point_color) +  
   labs(
     title = "Accessory Prices",
     x = "Price",
     y = "Accessory"
   ) +
-  theme_custom
+  theme_minimal() +
+  theme(
+    plot.title = element_text(color = title_color, size = 16, face = "bold"),
+    axis.title = element_text(color = axis_color, size = 12),
+    axis.text.x = element_text(color = axis_color, size = 10),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
 
 ggplotly(p_dot) %>%
-  layout(plot_bgcolor = "#fbfeb2", paper_bgcolor = "#fbfeb2")
+  layout(
+    plot_bgcolor = bg_color,
+    paper_bgcolor = bg_color,
+    font = list(color = axis_color)
+  )
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 top_n <- accessories %>%
   slice_max(sell, n = 20)
 
+# Updated ggplot
 p_top <- ggplot(top_n, aes(x = sell, y = fct_reorder(name, sell))) +
-  geom_point(size = 3) +
+  geom_point(size = 3, color = point_color) + 
   labs(
     title = "Top 20 Most Expensive Accessories",
     x = "Price",
     y = "Accessory"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    plot.title = element_text(color = title_color, size = 16, face = "bold"),
+    axis.title = element_text(color = axis_color, size = 12),
+    axis.text = element_text(color = axis_color, size = 10)
+  )
 
-ggplotly(p_top)
+ggplotly(p_top) %>%
+  layout(
+    plot_bgcolor = bg_color,
+    paper_bgcolor = bg_color,
+    font = list(color = axis_color)
+  )
 
 
 ```

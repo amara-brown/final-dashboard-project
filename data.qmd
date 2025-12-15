@@ -2,6 +2,8 @@
 title: "data"
 format:
   dashboard:
+    orientation: columns
+    theme: cosmo
     css: style.css
 ---
 
@@ -19,20 +21,33 @@ accessories <- accessories %>%
 accessories <- accessories %>% 
   distinct(name, .keep_all = TRUE)
 
+fill_color <- "#9AB973"    
+border_color <- "#f6f4ea"
+point_color <- "#9AB973"   
+bg_color <- "#f6f4ea"       
+title_color <- "#523A34"
+axis_color <- "#855C40"
+
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| title: table
 
-accessories <- accessories %>%
+accessories_table <- accessories %>%
   select(-sell)
 
-knitr::kable(accessories)
-
+kable(accessories_table, "html", caption = "Accessories Table") %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    font_size = 14
+  ) %>%
+  row_spec(0, bold = TRUE, color = "#523A34", background = "#f6f4ea") %>%  # header
+  column_spec(1:ncol(accessories_table), color = "#855C40", background = "#fbfeb2")
 ```
 
-## Dataset credit
+Dataset Credit
 
 Animal Crossing New Horizons Catalog by Jessica Li - kaggle.com
 
-# 
+<https://www.kaggle.com/datasets/jessicali9530/animal-crossing-new-horizons-nookplaza-dataset>

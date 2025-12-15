@@ -1,16 +1,16 @@
 /* Body background */
 body {
-  background-color: #f8f4c7 !important;
+  background-color: #fbfeb2 !important;
 }
 
 /* Navbar background */
-.navbar.navbar {
-  background-color: #f8f4c7 !important;
+.navbar.navbar-light {
+  background-color: #bee893 !important;
 }
 
 /* Navbar links */
 .navbar-nav .nav-link {
-  color: #855C40 !important;
+  color: #74e0aa !important;
 }
 
 .navbar-nav .nav-link:hover {
@@ -23,5 +23,5 @@ a:visited {
 }
 
 a:hover {
-  color: #dbbf9e !important;
+  color: #c4d9a9 !important;
 }
